@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Template Collection</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-body-font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--bs-body-bg) 0%, var(--bs-secondary-bg, #f8f9fa) 100%);
+            min-height: 100vh;
+            font-weight: 400;
+        }
+        
+        [data-bs-theme="dark"] body {
+            background: linear-gradient(135deg, var(--bs-body-bg) 0%, #1a1d29 100%);
+        }
+        
+        .hero-section {
+            padding: 100px 0 80px;
+        }
+        
+        .hero-title {
+            font-weight: 600;
+            font-size: 3.5rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .template-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            height: 100%;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        [data-bs-theme="dark"] .template-card {
+            background-color: var(--bs-dark);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        [data-bs-theme="dark"] .template-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .template-image {
+            height: 250px;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .template-card:nth-child(2) .template-image {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .template-card:nth-child(3) .template-image {
+            background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .card-body {
+            padding: 2rem;
+        }
+        
+        .template-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .template-description {
+            color: var(--bs-secondary-color);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-bs-theme="dark"] .navbar {
+            background: rgba(33, 37, 41, 0.95) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--bs-border-color);
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--bs-secondary-bg);
+            transform: scale(1.05);
+        }
+        
+        .templates-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-weight: 600;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .card-body {
+                padding: 1.5rem;
+            }
+        }
+        .template-preview {
+    width: 100%;
+    height: 250px;              /* Set desired height */
+    object-fit: cover;          /* Keeps image proportional */
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-palette me-2"></i>
+                Template Collection
+            </a>
+            
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i class="fas fa-sun" id="themeIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title">My Template Collection</h1>
+                    <p class="hero-subtitle">
+                        Discover beautifully crafted website templates designed with modern aesthetics 
+                        and responsive layouts. Perfect for your next project.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section class="templates-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 class="section-title">Featured Templates</h2>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Template 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card template-card">
+                        <div class="template-image">
+                            <img src="assets/temp1.png" class="img-fluid template-preview" alt="Template One Preview">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="template-title">Template One</h3>
+                            <p class="template-description">
+                                A modern business template featuring clean layouts and professional design elements. 
+                                Perfect for corporate websites and portfolios.
+                            </p>
+                            <a href="template3.html" class="btn btn-primary w-100">
+                                <i class="fas fa-eye me-2"></i>
+                                View Live Preview
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card template-card">
+                        <div class="template-image">
+                            <img src="assets/temp3.png" class="img-fluid template-preview" alt="Template One Preview">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="template-title">Template Two</h3>
+                            <p class="template-description">
+                                A creative portfolio template with bold typography and stunning visual elements. 
+                                Ideal for designers and creative professionals.
+                            </p>
+                            <a href="template1.html" class="btn btn-primary w-100">
+                                <i class="fas fa-eye me-2"></i>
+                                View Live Preview
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card template-card">
+                        <div class="template-image">
+                            <img src="assets/temp2.png" class="img-fluid template-preview" alt="Template One Preview">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="template-title">Template Three</h3>
+                            <p class="template-description">
+                                A minimalist blog template focusing on readability and user experience. 
+                                Great for content creators and writers.
+                            </p>
+                            <a href="template2.html" class="btn btn-primary w-100">
+                                <i class="fas fa-eye me-2"></i>
+                                View Live Preview
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 My Template Collection. Crafted with 
+                        <i class="fas fa-heart text-danger"></i> and Bootstrap 5
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference or default to 'light'
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        
+        function setTheme(theme) {
+            htmlElement.setAttribute('data-bs-theme', theme);
+            localStorage.setItem('theme', theme);
+            
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-moon';
+            } else {
+                themeIcon.className = 'fas fa-sun';
+            }
+        }
+        
+        // Set initial theme
+        setTheme(savedTheme);
+        
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+        });
+        
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

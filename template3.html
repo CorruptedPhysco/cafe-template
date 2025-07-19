@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Creative Mug - Where Art Meets Coffee</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pacifico&family=Indie+Flower&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-red: #E74C3C;
+            --primary-blue: #3498DB;
+            --primary-green: #2ECC71;
+            --soft-red: #F1948A;
+            --soft-blue: #AED6F1;
+            --soft-green: #A9DFBF;
+            --paper-white: #FEFEFE;
+            --dark-gray: #2C3E50;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--paper-white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        .creative-heading {
+            font-family: 'Amatic SC', cursive;
+            font-weight: 700;
+            font-size: 3.5rem;
+            color: var(--primary-red);
+        }
+
+        .pacifico-heading {
+            font-family: 'Pacifico', cursive;
+            color: var(--primary-blue);
+        }
+
+        .handwritten {
+            font-family: 'Indie Flower', cursive;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--soft-red) 0%, var(--soft-blue) 50%, var(--soft-green) 100%);
+            background-size: 400% 400%;
+            animation: watercolor-flow 8s ease-in-out infinite;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px; /* Account for fixed navbar */
+        }
+
+        @keyframes watercolor-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="roughPaper"><feTurbulence baseFrequency="0.04" numOctaves="5" result="noise" seed="2"/><feDiffuseLighting in="noise" lighting-color="white" surfaceScale="1"><feDistantLight azimuth="45" elevation="60"/></feDiffuseLighting></filter></defs><rect width="1200" height="800" fill="white" filter="url(%23roughPaper)" opacity="0.3"/></svg>') center/cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .coffee-mug-icon {
+            font-size: 4rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            animation: gentle-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes gentle-bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .btn-creative {
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-blue));
+            border: none;
+            padding: 12px 30px;
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-creative:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 80px 0;
+            position: relative;
+            z-index: 10;
+            background-color: var(--paper-white);
+        }
+
+        .watercolor-accent {
+            position: relative;
+        }
+
+        .watercolor-accent::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle, var(--soft-blue) 0%, transparent 70%);
+            opacity: 0.3;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* Menu Section */
+        .menu-card {
+            background: var(--paper-white);
+            border: 2px solid var(--soft-green);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, var(--soft-red), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .menu-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .nav-pills .nav-link {
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            border-radius: 20px;
+            margin: 0 5px;
+        }
+
+        .nav-pills .nav-link.active {
+            background: linear-gradient(45deg, var(--primary-red), var(--primary-blue));
+        }
+
+        /* Gallery Section */
+        .gallery-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .gallery-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .gallery-card img {
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--soft-red), var(--soft-blue));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            opacity: 0.8;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: var(--paper-white);
+            border: 3px solid var(--soft-green);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--soft-blue);
+            font-family: 'Pacifico', cursive;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--soft-green);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .creative-heading {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section {
+                height: 100vh;
+                padding-top: 70px; /* Smaller padding for mobile */
+            }
+            
+            .coffee-mug-icon {
+                font-size: 3rem;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--paper-white);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, var(--soft-red), var(--soft-blue));
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand pacifico-heading" href="#"><i class="fas fa-mug-hot text-primary"></i> The Creative Mug</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="coffee-mug-icon">
+                    <i class="fas fa-mug-hot"></i>
+                </div>
+                <h1 class="creative-heading mb-4">Where Art Meets Coffee</h1>
+                <p class="lead handwritten mb-4">A cozy corner where creativity flows with every sip</p>
+                <a href="#gallery" class="btn btn-creative">See Our Art</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <div class="watercolor-accent">
+                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="The Creative Mug Interior" class="img-fluid rounded-3">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="creative-heading mb-4">Our Artistic Roots</h2>
+                    <p class="lead">Born from a passion for both exceptional coffee and creative expression, The Creative Mug has become a haven for artists, writers, and dreamers.</p>
+                    <p>Our walls showcase local artists' work, our tables have witnessed countless creative conversations, and our coffee has fueled inspiration for over five years. We believe that the best ideas brew alongside the perfect cup.</p>
+                    <p class="handwritten">Every corner tells a story, every sip sparks creativity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section-padding" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="creative-heading text-center mb-5">Our Creative Menu</h2>
+            
+            <!-- Menu Navigation -->
+            <ul class="nav nav-pills justify-content-center mb-5" id="menu-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="coffee-tab" data-bs-toggle="pill" data-bs-target="#coffee" type="button" role="tab">
+                        <i class="fas fa-coffee"></i> Coffee
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="snacks-tab" data-bs-toggle="pill" data-bs-target="#snacks" type="button" role="tab">
+                        <i class="fas fa-cookie-bite"></i> Snacks
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="seasonal-tab" data-bs-toggle="pill" data-bs-target="#seasonal" type="button" role="tab">
+                        <i class="fas fa-leaf"></i> Seasonal Specials
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Menu Content -->
+            <div class="tab-content" id="menu-content">
+                <!-- Coffee Menu -->
+                <div class="tab-pane fade show active" id="coffee" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Artist's Blend</h5>
+                                <p class="text-muted">Our signature dark roast with hints of chocolate and caramel</p>
+                                <span class="badge bg-success">$4.50</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Inspiration Latte</h5>
+                                <p class="text-muted">Creamy espresso with vanilla and a touch of cinnamon</p>
+                                <span class="badge bg-success">$5.25</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Creative Cappuccino</h5>
+                                <p class="text-muted">Traditional cappuccino with latte art masterpiece</p>
+                                <span class="badge bg-success">$4.75</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Mocha Muse</h5>
+                                <p class="text-muted">Rich chocolate and espresso blend topped with whipped cream</p>
+                                <span class="badge bg-success">$5.50</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Cold Brew Canvas</h5>
+                                <p class="text-muted">Smooth cold brew served over ice with your choice of milk</p>
+                                <span class="badge bg-success">$4.25</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Palette Cleanser</h5>
+                                <p class="text-muted">Light roast with bright, fruity notes</p>
+                                <span class="badge bg-success">$4.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Snacks Menu -->
+                <div class="tab-pane fade" id="snacks" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Artisan Croissant</h5>
+                                <p class="text-muted">Buttery, flaky pastry perfect with your morning coffee</p>
+                                <span class="badge bg-success">$3.50</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Creative Cake Pop</h5>
+                                <p class="text-muted">Hand-decorated cake pops that are almost too pretty to eat</p>
+                                <span class="badge bg-success">$2.75</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Muse Muffin</h5>
+                                <p class="text-muted">Fresh blueberry muffin made with local ingredients</p>
+                                <span class="badge bg-success">$3.25</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Palette Sandwich</h5>
+                                <p class="text-muted">Grilled panini with fresh ingredients and artistic presentation</p>
+                                <span class="badge bg-success">$7.50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seasonal Menu -->
+                <div class="tab-pane fade" id="seasonal" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Summer Splash</h5>
+                                <p class="text-muted">Iced coffee with tropical fruit flavors and coconut milk</p>
+                                <span class="badge bg-success">$5.75</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Artist's Iced Tea</h5>
+                                <p class="text-muted">Refreshing herbal tea blend with local honey</p>
+                                <span class="badge bg-success">$3.75</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="menu-card">
+                                <h5 class="pacifico-heading">Creative Smoothie</h5>
+                                <p class="text-muted">Seasonal fruit smoothie with an artistic swirl</p>
+                                <span class="badge bg-success">$6.25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <h2 class="creative-heading text-center mb-5">Our Creative Gallery</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card gallery-card">
+                        <img src="assets/temp1.png" class="card-img-top" alt="Latte Art">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Latte Art Masterpiece</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card gallery-card">
+                        <img src="assets/temp1.png" class="card-img-top" alt="Cafe Interior">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Cozy Corner</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card gallery-card">
+                        <img src="assets/temp1.png" class="card-img-top" alt="Wall Art">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Local Artist Feature</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card gallery-card">
+                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Coffee Beans">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Premium Beans</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card gallery-card">
+                        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Reading Corner">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Reading Nook</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card gallery-card">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Coffee Cup">
+                        <div class="gallery-overlay">
+                            <h5 class="text-white">Perfect Pour</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="creative-heading text-center mb-5">What Our Creative Community Says</h2>
+            
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card">
+                            <p class="handwritten">"The Creative Mug isn't just a coffee shop - it's where my novel came to life. The atmosphere is pure inspiration!"</p>
+                            <footer class="blockquote-footer mt-3">Sarah M., <cite title="Source Title">Local Writer</cite></footer>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <p class="handwritten">"Best latte art in town! Plus, they featured my paintings last month. This place truly supports local artists."</p>
+                            <footer class="blockquote-footer mt-3">Miguel R., <cite title="Source Title">Visual Artist</cite></footer>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <p class="handwritten">"My morning ritual starts here. The Artist's Blend is perfection, and the vibe is unmatched."</p>
+                            <footer class="blockquote-footer mt-3">Emma T., <cite title="Source Title">Regular Customer</cite></footer>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <p class="handwritten">"Found my creative spark again in this cozy corner. The staff treats you like family!"</p>
+                            <footer class="blockquote-footer mt-3">James L., <cite title="Source Title">Musician</cite></footer>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="pacifico-heading mb-3">Join Our Creative Circle</h3>
+                    <p>Stay updated on art exhibitions, new menu items, and creative events.</p>
+                    <div class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email address">
+                            <button class="btn btn-success" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Artist Lane, Creative District</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-BREW</p>
+                    <p><i class="fas fa-envelope"></i> hello@thecreativemug.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sun: 7AM - 10PM</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h4>Follow Our Art</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <p class="mt-3 handwritten">Where every cup tells a story and every story inspires art.</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="handwritten">&copy; 2024 The Creative Mug. Brewing inspiration since 2019.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow');
+                navbar.classList.remove('bg-light');
+            } else {
+                navbar.classList.add('bg-light');
+                navbar.classList.remove('bg-white', 'shadow');
+            }
+        });
+
+        // Gallery hover effects
+        document.querySelectorAll('.gallery-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotate(1deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Menu card animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe menu cards for animation
+        document.querySelectorAll('.menu-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Newsletter form submission
+        document.querySelector('.newsletter-form button').addEventListener('click', function() {
+            const email = document.querySelector('.newsletter-form input').value;
+            if (email) {
+                alert('Thank you for joining our creative circle! We\'ll keep you updated on all our artistic adventures.');
+                document.querySelector('.newsletter-form input').value = '';
+            }
+        });
+
+        // Auto-start testimonial carousel
+        const testimonialCarousel = new bootstrap.Carousel(document.getElementById('testimonialCarousel'), {
+            interval: 5000,
+            ride: 'carousel'
+        });
+
+        // Add parallax effect to hero section (disabled to prevent overlap)
+        // window.addEventListener('scroll', function() {
+        //     const scrolled = window.pageYOffset;
+        //     const hero = document.querySelector('.hero-section');
+        //     if (hero) {
+        //         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        //     }
+        // });
+
+        // Add typing effect to hero text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', function() {
+            const heroSubtext = document.querySelector('.hero-content .lead');
+            if (heroSubtext) {
+                const originalText = heroSubtext.textContent;
+                setTimeout(() => {
+                    typeWriter(heroSubtext, originalText, 80);
+                }, 1000);
+            }
+        });
+
+        // Add floating animation to coffee mug icon
+        setInterval(function() {
+            const mugIcon = document.querySelector('.coffee-mug-icon');
+            if (mugIcon) {
+                mugIcon.style.animation = 'none';
+                setTimeout(() => {
+                    mugIcon.style.animation = 'gentle-bounce 2s ease-in-out infinite';
+                }, 100);
+            }
+        }, 10000);
+
+        // Add click effect to menu cards
+        document.querySelectorAll('.menu-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Add random color rotation to creative elements
+        function rotateColors() {
+            const colors = ['var(--primary-red)', 'var(--primary-blue)', 'var(--primary-green)'];
+            const creativeHeadings = document.querySelectorAll('.creative-heading');
+            
+            creativeHeadings.forEach(heading => {
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                heading.style.color = randomColor;
+            });
+        }
+
+        // Rotate colors every 30 seconds
+        setInterval(rotateColors, 30000);
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('.btn-creative').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple-effect');
+                
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255,255,255,0.3)';
+                ripple.style.animation = 'ripple-animation 0.6s ease-out';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS animation for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple-animation {
+                0% { transform: scale(0); opacity: 1; }
+                100% { transform: scale(4); opacity: 0; }
+            }
+            
+            .btn-creative {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
